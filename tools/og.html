@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { width: 1200px; height: 630px; overflow: hidden; background: #0a0b14; color: #f5f6fb; font-family: "Pretendard Variable", Pretendard, sans-serif; letter-spacing: -0.02em; position: relative; }
+  .g1, .g2 { position: absolute; border-radius: 50%; filter: blur(110px); }
+  .g1 { width: 620px; height: 620px; background: #6d4cff; top: -260px; right: -140px; opacity: .6; }
+  .g2 { width: 520px; height: 520px; background: #1fb6e6; bottom: -300px; left: -160px; opacity: .38; }
+  .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px); background-size: 60px 60px; -webkit-mask-image: radial-gradient(ellipse at 60% 35%, #000 15%, transparent 70%); }
+  .in { position: relative; padding: 64px 76px; height: 100%; display: flex; flex-direction: column; }
+  .logo { display: flex; align-items: center; gap: 16px; font-weight: 800; font-size: 44px; letter-spacing: -0.045em; }
+  .logo img { width: 56px; height: 56px; }
+  h1 { font-size: 78px; line-height: 1.14; font-weight: 800; letter-spacing: -0.05em; margin-top: 58px; }
+  h1 span { background: linear-gradient(120deg, #9b85ff 0%, #5f8bff 50%, #39d0f2 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .row { margin-top: auto; display: flex; align-items: center; justify-content: space-between; }
+  .chips { display: flex; gap: 12px; }
+  .chip { font-size: 24px; font-weight: 700; padding: 10px 20px; border-radius: 999px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); }
+  .url { font-size: 26px; font-weight: 600; color: #a3a8bd; }
+</style></head>
+<body>
+  <div class="g1"></div><div class="g2"></div><div class="grid"></div>
+  <div class="in">
+    <div class="logo"><img src="../public/favicon.svg" alt="">intime</div>
+    <h1>사람의 시간에<br><span>가치를 더합니다.</span></h1>
+    <div class="row">
+      <div class="chips"><span class="chip">⏱️ 타임마켓</span><span class="chip">🎤 여강해인터뷰</span><span class="chip">💻 바이브 코딩 클래스</span></div>
+      <span class="url">intimecorp.com</span>
+    </div>
+  </div>
+</body></html>

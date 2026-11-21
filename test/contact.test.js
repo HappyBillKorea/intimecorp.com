@@ -131,3 +131,16 @@ test("AI 임원 카드마다 역할과 비전 내용이 있고, 누르면 열 �
   assert.equal((html.match(/앞으로의 비전/g) || []).length, 10);
   assert.match(html, /<dialog class="ai-dlg" id="aiDlg"/);
 });
+
+test("링크 미리보기(오픈그래프) 이미지가 있고 열린다", async () => {
+  const fs = require("fs");
+  const path = require("path");
+  const html = fs.readFileSync(path.join(__dirname, "..", "public", "index.html"), "utf8");
+  assert.match(html, /<meta property="og:image" content="https:\/\/intimecorp\.com\/og\.png/);
+  assert.match(html, /<meta name="twitter:card" content="summary_large_image">/);
+  await withServer({}, async (base) => {
+    const res = await fetch(`${base}/og.png`);
+    assert.equal(res.status, 200);
+    assert.equal(res.headers.get("content-type"), "image/png");
+  });
+});
