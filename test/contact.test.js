@@ -91,3 +91,17 @@ test("홈페이지에 '소개팅' 표현이 없다", () => {
     assert.doesNotMatch(html, /소개팅|데이팅/);
   }
 });
+
+test("타임마켓 로고와 앱 화면이 열리고, timemrkt.com으로 연결된다", async () => {
+  const fs = require("fs");
+  const path = require("path");
+  const html = fs.readFileSync(path.join(__dirname, "..", "public", "index.html"), "utf8");
+  assert.match(html, /https:\/\/timemrkt\.com/);
+  await withServer({}, async (base) => {
+    for (const f of ["logo.svg", "signup.webp", "home.webp", "list.webp"]) {
+      const res = await fetch(`${base}/timemarket/${f}`);
+      assert.equal(res.status, 200, f);
+      if (f.endsWith(".webp")) assert.equal(res.headers.get("content-type"), "image/webp");
+    }
+  });
+});
