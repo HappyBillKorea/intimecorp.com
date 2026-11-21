@@ -47,7 +47,7 @@ a { color: inherit; }
 
 /* ── 머리글 ── */
 .top { position: fixed; inset: 0 0 auto 0; z-index: 20; transition: background .2s, border-color .2s; border-bottom: 1px solid transparent; color: var(--hero-ink); }
-.top.scrolled { background: color-mix(in srgb, var(--hero-bg) 82%, transparent); backdrop-filter: blur(14px); border-bottom-color: var(--hero-line); }
+.top.scrolled { background: color-mix(in srgb, var(--hero-bg) 94%, transparent); backdrop-filter: blur(14px); border-bottom-color: var(--hero-line); }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; font-size: 22px; letter-spacing: -0.04em; }
 .logo img { width: 32px; height: 32px; }
@@ -211,4 +211,39 @@ footer { background: var(--hero-bg); color: var(--hero-muted); padding: 56px 0 6
 @media (max-width: 640px) {
   .screens { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding: 18px 16px 10px; }
   .screens figure { flex: 0 0 62%; scroll-snap-align: center; }
+}
+
+/* ── 팀 ── */
+.ceo { display: grid; grid-template-columns: 220px 1fr; gap: 36px; align-items: start; background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 32px; box-shadow: var(--shadow); margin-bottom: 56px; }
+.ceo-photo { width: 220px; height: 220px; border-radius: 24px; object-fit: cover; display: block; }
+.ceo h3 { font-size: 30px; letter-spacing: -0.035em; margin: 12px 0 2px; }
+.ceo h3 small { font-size: 18px; color: var(--muted); font-weight: 600; margin-left: 6px; }
+.ceo-title { color: var(--brand); font-weight: 700; margin: 0 0 14px; }
+.ceo p { color: var(--ink-2); margin: 0 0 18px; }
+.ceo-stats { list-style: none; padding: 0; margin: 0 0 18px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.ceo-stats li { background: var(--bg-2); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+.ceo-stats b { display: block; font-size: 22px; letter-spacing: -0.03em; }
+.ceo-stats span { color: var(--muted); font-size: 13px; }
+.ceo .ceo-career { color: var(--muted); font-size: 14px; margin: 0; }
+.ai-head { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.ai-head h3 { font-size: 24px; letter-spacing: -0.03em; margin: 0; }
+.ai-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.ai { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; display: grid; gap: 14px; align-content: start; }
+.ai-av { position: relative; width: 64px; height: 64px; }
+.ai-av img { width: 64px; height: 64px; display: block; }
+.ai-badge { position: absolute; right: -8px; bottom: -8px; width: 32px; height: 32px; border-radius: 50%; background: var(--card); border: 2px solid var(--line); display: grid; place-items: center; font-size: 17px; line-height: 1; }
+.ai-role { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: .04em; color: var(--brand); background: var(--brand-soft); padding: 2px 9px; border-radius: 999px; }
+.ai b { display: block; font-size: 18px; margin: 6px 0 0; }
+.ai-full { display: block; font-size: 14px; color: var(--ink-2); font-weight: 600; }
+.ai-do { display: block; font-size: 13px; color: var(--muted); margin-top: 2px; }
+@media (max-width: 960px) {
+  .ai-grid { grid-template-columns: repeat(3, 1fr); }
+  .ceo { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .ai-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .ai { padding: 16px; }
+  .ceo { padding: 22px; }
+  .ceo-photo { width: 140px; height: 140px; }
+  .ceo-stats { grid-template-columns: 1fr 1fr; }
 }
