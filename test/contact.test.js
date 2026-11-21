@@ -144,3 +144,11 @@ test("링크 미리보기(오픈그래프) 이미지가 있고 열린다", async
     assert.equal(res.headers.get("content-type"), "image/png");
   });
 });
+
+test("여강해인터뷰는 '사람과 삶에 대한 이야기'로 소개하고 직업 중심 문구는 쓰지 않는다", () => {
+  const fs = require("fs");
+  const path = require("path");
+  const html = fs.readFileSync(path.join(__dirname, "..", "public", "index.html"), "utf8");
+  assert.match(html, /유튜브 · 사람과 삶에 대한 이야기/);
+  assert.doesNotMatch(html, /직업/);
+});
