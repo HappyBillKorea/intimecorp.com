@@ -121,3 +121,13 @@ test("팀 소개: CEO 여동호와 AI 임원진 10명(이름 Claude)이 있다",
     assert.equal((await fetch(`${base}/team/ai-avatar.svg`)).status, 200);
   });
 });
+
+test("AI 임원 카드마다 역할과 비전 내용이 있고, 누르면 열 창이 있다", () => {
+  const fs = require("fs");
+  const path = require("path");
+  const html = fs.readFileSync(path.join(__dirname, "..", "public", "index.html"), "utf8");
+  assert.equal((html.match(/class="ai-btn"/g) || []).length, 10);
+  assert.equal((html.match(/<template><p class="dlg-k">맡은 일<\/p>/g) || []).length, 10);
+  assert.equal((html.match(/앞으로의 비전/g) || []).length, 10);
+  assert.match(html, /<dialog class="ai-dlg" id="aiDlg"/);
+});
