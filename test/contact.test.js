@@ -111,7 +111,7 @@ test("팀 소개: CEO 여강해와 AI 임원진 10명(이름 Claude)이 있다",
   const path = require("path");
   const html = fs.readFileSync(path.join(__dirname, "..", "public", "index.html"), "utf8");
   assert.match(html, /id="team"/);
-  assert.match(html, /여강해/);
+  assert.match(html, /<h3>여강해 <small>Bill<\/small><\/h3>/);
   assert.doesNotMatch(html, /여동호/);
   assert.equal((html.match(/class="ai"/g) || []).length, 10);
   for (const role of ["CTO", "CSO", "CMO", "CISO", "CPO", "CFO", "COO", "PD", "작가", "SNS"]) {
