@@ -153,3 +153,23 @@ test("여강해인터뷰는 '사람과 삶에 대한 이야기'로 소개하고 
   assert.match(html, /유튜브 · 사람과 삶에 대한 이야기/);
   assert.doesNotMatch(html, /직업/);
 });
+
+test("IR 카드와 투자자 안내 창이 있고, 투자 문의·출시 알림 신청을 받는다", () => {
+  const fs = require("fs");
+  const path = require("path");
+  const html = fs.readFileSync(path.join(__dirname, "..", "public", "index.html"), "utf8");
+  assert.match(html, /id="ir"/);
+  assert.match(html, /id="irOpen"/);
+  assert.match(html, /<dialog class="ai-dlg ir-dlg" id="irDlg"/);
+  for (const t of ["왜 지금", "왜 우리", "사업 3개", "2027년 1월 출시 예정"]) assert.ok(html.includes(t), t);
+  assert.match(html, /data-topic="ir"/);
+  assert.match(html, /data-topic="waitlist"/);
+  assert.match(html, /<option value="ir">/);
+  // IR 자료(PDF)는 공개하지 않는다
+  assert.doesNotMatch(html, /\.pdf/i);
+
+  const ir = validateContact({ ...good, topic: "ir", message: "투자 검토를 위해 자료를 받고 싶습니다." });
+  assert.equal(ir.ok, true);
+  assert.match(formatContactAlert(ir.data), /투자\(IR\) 문의/);
+  assert.equal(validateContact({ ...good, topic: "waitlist", message: "출시되면 알려 주세요." }).ok, true);
+});
