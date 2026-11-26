@@ -289,3 +289,29 @@ footer { background: var(--hero-bg); color: var(--hero-muted); padding: 56px 0 6
 .screens { background: radial-gradient(120% 90% at 80% 0%, #4a4744 0%, #3a3a3c 55%, #333436 100%); border-color: #46474b; }
 .screens .frame { border-color: #4f5054; box-shadow: 0 16px 34px rgba(0,0,0,.35); }
 .screens figcaption { color: #c8c6c2; }
+
+/* ── IR(투자자 안내) ── */
+.ir-band { background: var(--hero-bg); color: var(--hero-ink); padding: 88px 0; }
+.ir-card { position: relative; overflow: hidden; display: grid; gap: 12px; width: 100%; text-align: left; font: inherit; color: var(--hero-ink); cursor: pointer; padding: 40px; border-radius: 28px; border: 1px solid var(--hero-line); background: radial-gradient(120% 140% at 100% 0%, rgba(124,92,255,.35) 0%, transparent 55%), radial-gradient(90% 120% at 0% 100%, rgba(34,195,238,.18) 0%, transparent 60%), color-mix(in srgb, var(--hero-bg) 90%, #fff); transition: transform .15s, border-color .15s; }
+.ir-card:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.22); }
+.ir-card:focus-visible { outline: 3px solid var(--brand-2); outline-offset: 3px; }
+.ir-tag { justify-self: start; font-size: 13px; font-weight: 800; letter-spacing: .02em; padding: 5px 12px; border-radius: 999px; background: rgba(255,255,255,.08); border: 1px solid var(--hero-line); }
+.ir-title { font-size: clamp(26px, 3.6vw, 40px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.25; }
+.ir-desc { color: var(--hero-muted); font-size: 17px; max-width: 620px; }
+.ir-points { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.ir-points span { font-size: 14px; font-weight: 600; padding: 6px 12px; border-radius: 10px; background: rgba(255,255,255,.06); border: 1px solid var(--hero-line); }
+.ir-go { margin-top: 10px; font-weight: 800; font-size: 17px; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; justify-self: start; }
+.ir-dlg { width: min(640px, calc(100% - 32px)); max-height: calc(100% - 32px); }
+.ir-head { grid-template-columns: 1fr 40px; }
+.ir-list { margin: 6px 0 0; padding-left: 20px; color: var(--ink-2); display: grid; gap: 6px; }
+.ir-list b { color: var(--ink); }
+.ir-biz { display: grid; gap: 10px; margin-top: 8px; }
+.ir-biz div { display: grid; gap: 2px; padding: 14px 16px; border-radius: 14px; background: var(--bg-2); border: 1px solid var(--line); }
+.ir-biz span { color: var(--ink-2); font-size: 15px; }
+.ir-biz em { font-style: normal; font-size: 13px; font-weight: 700; color: var(--brand); }
+.ir-steps { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 6px; color: var(--ink-2); }
+.ir-steps time { display: inline-block; min-width: 72px; font-weight: 800; color: var(--ink); }
+.ir-note { margin-top: 18px !important; font-size: 14px; color: var(--muted) !important; padding: 12px 14px; border-radius: 12px; background: var(--brand-soft); }
+.ir-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.btn.line { background: transparent; color: var(--ink); border-color: var(--line); }
+@media (max-width: 640px) { .ir-band { padding: 64px 0; } .ir-card { padding: 28px 22px; border-radius: 22px; } .ir-actions .btn { width: 100%; } }
